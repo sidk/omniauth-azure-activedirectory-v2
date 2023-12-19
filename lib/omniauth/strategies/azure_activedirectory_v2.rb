@@ -110,6 +110,11 @@ module OmniAuth
 
         @raw_info
       end
+
+      def callback_phase
+        return if request.params["id_token"].present?
+        super
+      end
     end
   end
 end
